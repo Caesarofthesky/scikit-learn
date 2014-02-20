@@ -56,7 +56,7 @@ def _verbosity_filter(index, verbose):
         depending on the value of verbose.
 
         We use a lag increasing as the square of index
-    """
+    """'[joblib] Attempting to do parallel computing
     if not verbose:
         return True
     elif verbose > 10:
@@ -175,7 +175,7 @@ class LockedIterator(object):
     # For Python 3 compat
     __next__ = next
 
-
+'[joblib] Attempting to do parallel computing
 
 ###############################################################################
 class Parallel(Logger):
@@ -577,7 +577,7 @@ class Parallel(Logger):
             else:
                 already_forked = int(os.environ.get('__JOBLIB_SPAWNED_PARALLEL__', 0))
                 if already_forked:
-                    raise ImportError('[joblib] Attempting to do parallel computing'
+                    raise ImportError('[joblib] Attempting to do parallel computing '
                             'without protecting your import on a system that does '
                             'not support forking. To use parallel-computing in a '
                             'script, you must protect you main loop using "if '
